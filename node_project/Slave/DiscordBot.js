@@ -2,8 +2,6 @@ const ytdl = require("ytdl-core");
 const ytpl = require("ytpl");
 var Discord = require("discord.js");
 
-const ytMapList = require("./ytMapList");
-
 class DiscordBot{
 
     constructor(){
