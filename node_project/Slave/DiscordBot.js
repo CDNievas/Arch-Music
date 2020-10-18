@@ -1,4 +1,5 @@
 const ytdl = require("ytdl-core");
+const ytpl = require("ytpl");
 var Discord = require("discord.js");
 
 const ytMapList = require("./ytMapList");
@@ -90,17 +91,23 @@ class DiscordBot{
             let regex = /list=(.*?)(&|$)/g;
             let match = regex.exec(source);
             
-            console.log("Waiting for ytMapList");
-            songs = await ytMapList.toList(match[1]);
-            console.log("Ready!");
+            try{
+                console.log("Waiting for ytpl");
+                var response = await ytpl(match[1],{limit:25});
+                console.log("Ready!");
 
-            if (songs.length == 0) {
+                response.items.forEach(item => {
+                    songs.push({
+                        title: item.title,
+                        url:item.url_simple
+                    });
+                });
+
+                serverQueue.textChannel.send(response.items.length + " songs added to the playlist. To see the playlist type a!list");
+            } catch(e) {
+                console.log(e);
                 serverQueue.textChannel.send("An error has ocurred and couldn't add the songs");
-                return;
-            } else {
-                serverQueue.textChannel.send(songs.length + " songs added to the playlist. To see the playlist type a!list");
             }
-    
     
         } else {
             
@@ -118,10 +125,8 @@ class DiscordBot{
             serverQueue.textChannel.send(song.title + " added to the playlist");
     
         }
-    
-        for (var i in songs){
-            serverQueue.songs.push(songs[i]);
-        }
+        
+        songs.forEach(song => serverQueue.songs.push(song));
     
         if(!serverQueue.playing){
             this.play(message.serverID, serverQueue.songs[0]);
