@@ -91,13 +91,13 @@ class DiscordBot{
             
             try{
                 console.log("Waiting for ytpl");
-                var response = await ytpl(match[1],{limit:25});
+                let response = await ytpl(match[1],{limit:25});
                 console.log("Ready!");
 
                 response.items.forEach(item => {
                     songs.push({
                         title: item.title,
-                        url:item.url_simple
+                        url: item.url_simple
                     });
                 });
 
@@ -110,17 +110,12 @@ class DiscordBot{
         } else {
             
             console.log("Waiting for ytdl-core");
-            let songInfo = await ytdl.getInfo(source);
+            let song = await ytdl.getInfo(source);
             console.log("Ready!");
-            
-            let song = {
-                title: songInfo.title,
-                url: songInfo.video_url
-            }
     
-            songs.push(song);
+            songs.push({title: song.videoDetails.title, url:song.videoDetails.video_url});
     
-            serverQueue.textChannel.send(song.title + " added to the playlist");
+            serverQueue.textChannel.send(song.videoDetails.title + " added to the playlist");
     
         }
         

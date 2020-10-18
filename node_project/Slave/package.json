@@ -12,7 +12,7 @@
     "@discordjs/opus": "^0.1.0",
     "discord.js": "^12.2.0",
     "request": "^2.88.2",
-    "ytdl-core": "^2.1.2",
+    "ytdl-core": "^3.4.1",
     "ytpl": "^1.0.1"
   }
 }
