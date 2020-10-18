@@ -1,37 +1,67 @@
-## Welcome to GitHub Pages
+## What is Arch Music? / ¿Qué es Arch Music?
+Arch music is a multi-channel music bot for Discord, that means that unlike other music bots, this has the ability to command many "DJs" to join and put music on differents channel, in the same server, at the same time, using an only set of commands.
 
-You can use the [editor on GitHub](https://github.com/CDNievas/Arch-Music/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+Arch Music es un bot reproductor de música multicanal para Discord, esto significa que a diferencia de otros bots de música este tiene la capacidad de organizar/manejar varios "DJs" para que entren y pongan música en varios canales, en el mismo servidor, al mismo tiempo, usando solo un set de comandos.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## How it works? / ¿Cómo funciona?
+There is a ArchMusic Master bot and many ArchMusic DJs Slave bots that must join to your server. When you send a command is received by the Master bot and send it to the Slave bot that is connected to the same voice channel as the user. If the command is a request to start playing a song, the Master bot first looks for a Slave who is not occupied on other channels, if them all are ocuppied it throws an advert saying that no are slaves availables.
 
-### Markdown
+Hay un ArchMusic Master bot y muchos ArchMusic DJs Slaves bots que deben ingresar en tu servidor. Cuando se manda un comando éste es recibido por el bot Master y es reenviado al bot Slave que este conectado al mismo canal que el usuario. Si el comando es una petición para empezara reproducir una canción, el bot Master primero busca por algún bot Slave que se encuentre desocupado, si todos estan ocupados lanza una advertencia diciendo que no hay bots Slaves disponibles
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## How I can add it to my server? / ¿Cómo puedo agregarlo a mi servidor?
 
-```markdown
-Syntax highlighted code block
+You need to invite the Master bot and one slave bot as minimum. There is a limit of Slaves bots created right now, but you can invite many as you want, so you don't need to invite them all if you are not going to use them. The invitation links are below.
 
-# Header 1
-## Header 2
-### Header 3
+Tenes que invitar al Master bot y a un Slave bot como mínimo. Hay un límite de bots Slaves creados actualmente, pero podes invitar la cantidad que vos quieras, no necesitas invitar a todos si no los vas a usar. Los links de invitación están abajo
 
-- Bulleted
-- List
+- [Arch Music Master Bot](https://discord.com/api/oauth2/authorize?client_id=709311824805363712&permissions=36768768&scope=bot)
+- [Arch Music DJ Slave 1 Bot](https://discord.com/api/oauth2/authorize?client_id=701671688093302818&permissions=36768768&scope=bot)
+- [Arch Music DJ Slave 2 Bot](https://discord.com/api/oauth2/authorize?client_id=701679964768174140&permissions=36768768&scope=bot)
+- [Arch Music DJ Slave 3 Bot](https://discord.com/api/oauth2/authorize?client_id=710056063986171945&permissions=36768768&scope=bot)
 
-1. Numbered
-2. List
+## Command list / Lista de comandos
 
-**Bold** and _Italic_ and `Code` text
+> Add the video or videos to the list <br>
+>**a!play** *youtube_video_url/youtube_playlist_url*
 
-[Link](url) and ![Image](src)
-```
+> Skip to song number <br>
+> **a!skip** *number* 
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+> Empty the playlist and disconnects the bot from the channel <br>
+> **a!clear** 
 
-### Jekyll Themes
+> Pause the playing song <br>
+> **a!pause** 
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/CDNievas/Arch-Music/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+> Resume the stopped song <br>
+> **a!resume** 
 
-### Support or Contact
+> Shows the song being played and the playlist <br>
+> **a!list** 
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+> Shuffles the playlist <br>
+> **a!shuffle**
+
+> Link to share the bot with your friends <br>
+> **a!invite** 
+
+> Shows the command list <br>
+> **a!help** 
+  
+## How can I support you? / ¿Cómo puedo ayudarte/agradecerte?
+
+There is many ways to help or support me...
+
+- Follow me on [Twitch](https://www.twitch.tv/strakered)
+- Follow me on [YouTube](https://www.youtube.com/channel/UCO5u-DKTXeIZrZ5ILOL4KOA)
+- Let me know if you are using it leaving me a comment on my [Steam](https://steamcommunity.com/id/strakered) profile
+- Leave like to the bot on [top.gg](top.gg) (Soon)
+- Donations (Soon)
+
+Hay muchas formas de ayudarme...
+
+- Seguime en [Twitch](https://www.twitch.tv/strakered)
+- Seguime en [YouTube](https://www.youtube.com/channel/UCO5u-DKTXeIZrZ5ILOL4KOA)
+- Podes dejarme un comentario en mi perfil de [Steam](https://steamcommunity.com/id/strakered) para enterarme de que estas usando mi bot
+- Dejale un like al bot en [top.gg](top.gg) (Proximamente)
+- Donaciones (Proximamente)
