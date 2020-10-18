@@ -1,0 +1,29 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - deploy
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Decrypt slaves.json
+        run: ./.github/scripts/decrypt_slaves.sh
+        env:
+          SLAVES_JSON_KEY: ${{secrets.SLAVES_JSON_KEY}}
+      - uses: CDNievas/heroku-action@v1.0
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "arch-music-bot"
+          heroku_email: "${{secrets.HEROKU_EMAIL}}"
+          branch: "deploy"
+          procfile: "worker: npm start"
+          appdir: "node_project"
+          dynamicFiles: true
+          useforce: true
+          buildpacks: '["https://github.com/heroku/heroku-buildpack-nodejs.git", "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"]'
+        env:
+          HD_DISCORD_MASTER_BOT_KEY: ${{secrets.DISCORD_MASTER_BOT_KEY}}
